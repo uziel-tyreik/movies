@@ -1,12 +1,11 @@
 
 
-
 .card {
-    height: 14em;
-    width: 80%;
+    height: 300px;
+    width: 300px;
     margin: 0 auto;
     transform-style: revert;
-    perspective: 300px;
+    perspective: 50px;
     transition: 0.5ms;
 }
 
@@ -19,8 +18,8 @@
 }
 
 .card-front {
-    height: 100%;
-    width: 100%;
+    height: 300px;
+    width: 300px;
     background-position: 50% 50%;
     background-size: cover;
     position: absolute;
@@ -34,8 +33,8 @@
 }
 
 .card-back {
-    height: 100%;
-    width: 100%;
+    height: 300px;
+    width: 300px;
     position: absolute;
     top: 0;
     left: 0;
@@ -50,26 +49,27 @@
 .card-back > a {
     margin: auto;
     top: 0.5em;
-    font-size: 1em;
+    font-size: 2px;
     color: #F06449;
 
 }
 
 .card-img {
-    width: 100%;
-    height: 100%;
-    padding: 1em;
+    width: 300px;
+    height: 300px;
+    padding: 2px;
 }
 
 
-/*
-loader
-img
-*/
+.content {
+    display: none;
+}
 
-.loader{
-    height: 150px;
-    width: 150px;
+
+
+.loader {
+    height: 200px;
+    width: 200px;
     border: 20px solid crimson;
     border-top-color: yellow;
     position: absolute;
