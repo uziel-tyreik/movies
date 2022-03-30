@@ -84,3 +84,11 @@ function addMovies() {
 }
 
 // addMovies();
+
+$("#addMe").click(function () {
+
+});
+
+function newMovie() {
+    return ``
+}
