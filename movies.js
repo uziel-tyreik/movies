@@ -5,19 +5,30 @@ loadScreen()
 
 function loadScreen() {
     //language=HTML
-    let loader = `<div id="#loader"></div>`
-    $(document).ready(function (){
-        $("#movies").append("#loader")
-    })
-    //language=HTML
-    fetch(url)
-        .then(data => data.json())
-        .then(data => getMovies(data))
+    $('#movies').append('<div id="loadingDiv"><div class="loader"></div></div>');
+    $(window).on('load', function () {
+        setTimeout(removeLoader, 2000); //wait for page load PLUS two seconds.
+    });
+
+    function removeLoader() {
+        // fadeOut complete. Remove the loading div
+        $("#loadingDiv").remove(); //makes page more lightweight
+    }
+
+    setTimeout(getFetch, 1000)
+
+    function getFetch() {
+        //language=HTML
+        fetch(url)
+            .then(data => data.json())
+            .then(data => getMovies(data))
+    }
 }
 
 
-
-
+$(window).load(function () {
+    $('#loadingDiv').hide();
+});
 
 
 function getMovies(movie) {
