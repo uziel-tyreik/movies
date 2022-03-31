@@ -29,34 +29,36 @@ function getFetch() {
 
 
 //displays all movies with fetch
-function getMovies(movie) {
-
-    console.log(movie)
+function getMovies(movies) {
     let moviesCards = ""
     //languages=HTML
-    movie.forEach((movie, movies) => {
-        let movieTitle = movie.title
-        let moviePoster = movie.poster
-        let moviePlot = movie.plot
-        let movieRating = movie.rating
-        let idNumber = movie.id
-        console.log(idNumber)
-        moviesCards += `
-            <h1 class="info-number">${idNumber}</h1>
+    movies.forEach((movie) => {
+        moviesCards += getMovieCard(movie)
+    })
+    $('#movies').append(moviesCards)
+    editMovieClick()
+
+}
+
+function getMovieCard(movie) {
+    let movieTitle = movie.title
+    let moviePoster = movie.poster
+    let moviePlot = movie.plot
+    let movieRating = movie.rating
+    let idNumber = movie.id
+    return `
             <div class="card">
                 <div class="card-front">
                     <img class="card-img" src="${moviePoster}" alt="Movie Image"></div>
                 <div class="card-back">
                     <h3>${movieTitle}</h3>
                     <p>${moviePlot}</p>
-                    <button class="edit-movie">+</button>
+                    <label for="edit-movie">edit movie:</label>
+                    <button id="edit-movie" class="edit-movie">${idNumber}</button>
                     <button class="delete-movie">-</button>
                 </div>
             </div>
         `
-    })
-
-    $('#movies').append(moviesCards)
 }
 
 //when click, form pops up
@@ -88,7 +90,15 @@ $('#info').click(function (e) {
         body: JSON.stringify(newMovie),
     };
     fetch(`${url}`, options)
-        .then(response => console.log(response))
+        .then(response => response.json())
+        .then(movie => {
+            let movieCard = $(getMovieCard(movie));
+            movieCard.find('.edit-movie').click(function () {
+                let movieNumber = parseInt($(this).html())
+                editMovie(movieNumber)
+            })
+            $('#movies').append(movieCard)
+        })
         .catch(error => console.error(error));
 
     $('#newMovie').css('display', 'none')
@@ -100,7 +110,6 @@ $(".close-icon").click(function () {
 
     $('#newMovie').css('display', 'none')
 })
-
 
 
 //delete movies function
@@ -116,18 +125,18 @@ function deleteMovie(id) {
         body: JSON.stringify(deleteMovie),
     };
     fetch(`${url}/${id}`, options)
-        .then(response => console.log(response))
+        .then(response => response.json())
         .catch(error => console.error(error));
 }
 
 // deleteMovie(6)
-$("#delete").click(function (e){
+$("#delete").click(function (e) {
     e.preventDefault()
     let valueForm = parseInt($("#movieid").val())
     deleteMovie(valueForm)
 })
 
-$("#deleteMe").click(function (){
+$("#deleteMe").click(function () {
     $("#deleteOneMovie").css('display', 'block')
     $(".close-icon").click(function () {
 
@@ -139,8 +148,8 @@ $("#deleteMe").click(function (){
 function editMovie(id) {
     const editMovie = {
         id: `${id}`,
-        title: 'NMMM',
-        plot: 'new story',
+        title: 'new title2',
+        plot: 'none',
     }
     const options = {
         method: 'PUT',
@@ -150,9 +159,18 @@ function editMovie(id) {
         body: JSON.stringify(editMovie),
     };
     fetch(`${url}/${id}`, options)
-        .then(response => console.log(response))
+        .then(response => response.json())
         .catch(error => console.error(error));
 }
 
-editMovie(4);
+
+//listener for edit button
+function editMovieClick() {
+
+    $(".edit-movie").click(function () {
+        let movieNumber = parseInt($(this).html())
+        editMovie(movieNumber)
+    })
+}
+
 
