@@ -9,12 +9,11 @@ function loadScreen() {
     //language=HTML
     $('#movies').append('<div id="loadingDiv"><div class="loader"></div></div>');
     $(window).on('load', function () {
-        setTimeout(removeLoader, 1000); //wait for page load PLUS two seconds.
+        setTimeout(removeLoader, 1000);
     });
 
     function removeLoader() {
-        // fadeOut complete. Remove the loading div
-        $("#loadingDiv").remove(); //makes page more lightweight
+        $("#loadingDiv").remove();
     }
 
     setTimeout(getFetch, 1000)
@@ -37,7 +36,6 @@ function getMovies(movies) {
     })
     $('#movies').append(moviesCards)
     editMovieClick()
-
 }
 
 function getMovieCard(movie) {
@@ -145,11 +143,17 @@ $("#deleteMe").click(function () {
 })
 
 //delete movies function
-function editMovie(id) {
+function editMovie(id, movieTitle, movieRating, moviePoster, movieActors, movieGenre,
+                   movieDirector, movieYear, moviePlot) {
     const editMovie = {
-        id: `${id}`,
-        title: 'new title2',
-        plot: 'none',
+        title: `${movieTitle}`,
+        rating: `${movieRating}`,
+        year: `${movieYear}`,
+        genre: `${movieGenre}`,
+        director: `${movieDirector}`,
+        plot: `${moviePlot}`,
+        actors: `${movieActors}`,
+        poster: `${moviePoster}`
     }
     const options = {
         method: 'PUT',
@@ -166,10 +170,29 @@ function editMovie(id) {
 
 //listener for edit button
 function editMovieClick() {
-
     $(".edit-movie").click(function () {
         let movieNumber = parseInt($(this).html())
-        editMovie(movieNumber)
+        getEditMovieValues(movieNumber)
+        console.log('click')
+    })
+}
+
+
+//listener for edit movie
+function getEditMovieValues(id) {
+    $("#editBtn").click(function () {
+        console.log("click after the click")
+        let movieTitle = $("#editTitle").val()
+        let movieRating = $("#editRating").val()
+        let moviePoster = $("#editPoster").val()
+
+        let moviePlot = $("#editPlot").val()
+        let movieYear = $("#editYear").val()
+        let movieGenre = $("#editGenre").val()
+        let movieDirector = $("#editDirector").val()
+        let movieActors = $("#editActors").val()
+        editMovie(id, movieTitle, movieRating, moviePoster, movieActors, movieGenre,
+            movieDirector, movieYear, moviePlot)
     })
 }
 
