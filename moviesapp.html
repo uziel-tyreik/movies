@@ -18,10 +18,29 @@
     </div>
 </nav>
 
+<div id="newMovie">
+<form>
+    <span class="pull-right clickable close-icon mr-4"><i class="fa fa-times"></i></span>
+    <label for="mTitle" pattern="[a-z]*">Movie Title</label><br>
+    <input type="text" id="mTitle" name="mTitle" required><br>
+    <label for="mRating">Movie rating</label><br>
+    <input type="text" id="mRating" name="mRating" required><br>
+
+    <label for="mPlot">Description</label><br>
+    <input type="text" id="mPlot" name="mPlot" required>
+    <div class="btns">
+    <input id="info" type="submit"></input>
+
+    <button id="reset" type="reset">reset</button>
+    </div>
+</form>
+</div>
 <!--**************************************************************************-->
 <section id="movies">
     <div class="newMovie"></div>
 </section>
+
+<script src="https://kit.fontawesome.com/09d59239c9.js" crossorigin="anonymous"></script>
 <!--**************************************************************************-->
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
