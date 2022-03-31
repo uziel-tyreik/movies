@@ -108,6 +108,7 @@ $(".close-icon").click(function () {
 })
 
 
+
 //delete movies function
 function deleteMovie(id) {
     const deleteMovie = {
