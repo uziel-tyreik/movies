@@ -120,4 +120,18 @@ function deleteMovie(id) {
         .catch(error => console.error(error));
 }
 
-// deleteMovie(5)
+// deleteMovie(6)
+$("#delete").click(function (e){
+    e.preventDefault()
+    let valueForm = parseInt($("#movieid").val())
+    deleteMovie(valueForm)
+})
+
+$("#deleteMe").click(function (){
+    $("#deleteOneMovie").css('display', 'block')
+    $(".close-icon").click(function () {
+
+        $("#deleteOneMovie").css('display', 'none')
+    })
+})
+

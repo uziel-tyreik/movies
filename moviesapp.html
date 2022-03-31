@@ -13,6 +13,8 @@
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-light shadow-3 p-4">
                 <button id="addMe" class="btn btn-link btn-block border-bottom m-0">ADD MOVIE</button>
+
+                <button id="deleteMe" class="btn btn-link btn-block border-bottom m-0">Delete Movie</button>
             </div>
         </div>
     </div>
@@ -34,6 +36,19 @@
     <button id="reset" type="reset">reset</button>
     </div>
 </form>
+</div>
+
+<!--
+delete movie
+-->
+
+<div id="deleteOneMovie">
+    <form>
+        <span class="pull-right clickable close-icon mr-4"><i class="fa fa-times"></i></span>
+        <label for="movieid">Movie Number</label><br>
+        <input type="text" id="movieid" name="movieID" required><br>
+            <input id="delete" type="submit"></input>
+    </form>
 </div>
 <!--**************************************************************************-->
 <section id="movies">

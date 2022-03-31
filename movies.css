@@ -143,3 +143,13 @@ input:invalid{
         transform: translateX(4px);
     }
 }
+
+
+/*
+delete form
+*/
+
+
+#deleteOneMovie{
+    display: none;
+}
