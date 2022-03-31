@@ -64,11 +64,14 @@ function getMovies(movie) {
 
 // addMovies();
 
+
+//when click, form pops up
 $("#addMe").click(function () {
     $('#newMovie').css('display', 'block')
 });
 
 
+//get values from form and do post request
 $('#info').click(function (e) {
     e.preventDefault()
     let movieTitle = $("#mTitle").val()
@@ -98,11 +101,14 @@ $('#info').click(function (e) {
 })
 
 
+//closes form
 $(".close-icon").click(function () {
 
     $('#newMovie').css('display', 'none')
 })
 
+
+//delete movies function
 function deleteMovie(id) {
     const deleteMovie = {
         id: `${id}`
