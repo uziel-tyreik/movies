@@ -1,11 +1,10 @@
 
-
 .card {
-    height: 300px;
-    width: 300px;
+    height: 14em;
+    width: 80%;
     margin: 0 auto;
     transform-style: revert;
-    perspective: 50px;
+    perspective: 300px;
     transition: 0.5ms;
 }
 
@@ -18,8 +17,8 @@
 }
 
 .card-front {
-    height: 300px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
     background-position: 50% 50%;
     background-size: cover;
     position: absolute;
@@ -33,8 +32,8 @@
 }
 
 .card-back {
-    height: 300px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -49,16 +48,21 @@
 .card-back > a {
     margin: auto;
     top: 0.5em;
-    font-size: 2px;
+    font-size: 1em;
     color: #F06449;
 
 }
 
 .card-img {
-    width: 300px;
-    height: 300px;
-    padding: 2px;
+    width: 100%;
+    height: 100%;
+    padding: 1em;
 }
+
+
+
+
+
 
 
 .content {
@@ -85,5 +89,57 @@
 @keyframes spin {
     100%{
         transform: rotate(360deg);
+    }
+}
+
+
+/*
+form
+*/
+
+#newMovie{
+    display: none;
+    width: 50%;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#reset{
+    width: 30%;
+}
+#info{
+    width: 30%;
+}
+
+.btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1em;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+input:invalid{
+    animation: shake 300ms;
+}
+@keyframes shake {
+    25%{
+        transform: translateX(4px);
+    }
+    50%{
+        transform: translateX(-4px);
+    }
+    75%{
+        transform: translateX(4px);
     }
 }
