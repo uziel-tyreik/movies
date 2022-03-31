@@ -28,6 +28,7 @@ function getFetch() {
 }
 
 
+//displays all movies with fetch
 function getMovies(movie) {
 
     console.log(movie)
@@ -56,14 +57,7 @@ function getMovies(movie) {
     })
 
     $('#movies').append(moviesCards)
-    // $(".card").click(function (){
-    //     let info = $(this).val()
-    //     console.log(info)
-    // })
 }
-
-// addMovies();
-
 
 //when click, form pops up
 $("#addMe").click(function () {
@@ -126,4 +120,4 @@ function deleteMovie(id) {
         .catch(error => console.error(error));
 }
 
-deleteMovie(5)
+// deleteMovie(5)
