@@ -135,3 +135,24 @@ $("#deleteMe").click(function (){
     })
 })
 
+//delete movies function
+function editMovie(id) {
+    const editMovie = {
+        id: `${id}`,
+        title: 'NMMM',
+        plot: 'new story',
+    }
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(editMovie),
+    };
+    fetch(`${url}/${id}`, options)
+        .then(response => console.log(response))
+        .catch(error => console.error(error));
+}
+
+editMovie(4);
+
