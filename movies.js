@@ -55,7 +55,7 @@ function getMovieCard(movie) {
                     <h3>${movieTitle}</h3>
                     <p>${moviePlot}</p>
                     <label for="edit-movie">edit movie:</label>
-                    <button id="edit-movie" class="edit-movie">${idNumber}</button>
+                    <button class="edit-movie">${idNumber}</button>
                     <button class="delete-movie">-</button>
                 </div>
             </div>
@@ -153,7 +153,7 @@ $("#deleteMe").click(function () {
 })
 
 //edit movies function
-function editMovie(id, movieTitle, movieRating, moviePoster, movieActors, movieGenre,
+function editMovie(id, thisImg, movieTitle, movieRating, movieActors, movieGenre,
                    movieDirector, movieYear, moviePlot) {
     const editMovie = {
         title: `${movieTitle}`,
@@ -163,7 +163,7 @@ function editMovie(id, movieTitle, movieRating, moviePoster, movieActors, movieG
         director: `${movieDirector}`,
         plot: `${moviePlot}`,
         actors: `${movieActors}`,
-        poster: `${moviePoster}`
+        poster: `${thisImg}`
     }
     const options = {
         method: 'PUT',
@@ -186,25 +186,29 @@ function editMovieClick() {
     $(".edit-movie").click(function () {
         $("#edit-movie-form").css('display', 'block')
         let movieNumber = parseInt($(this).html())
-        getEditMovieValues(movieNumber)
+        let thisImg = $(this).parent().parent().children('.card-front').children('.card-img').attr('src')
+        getEditMovieValues(movieNumber, thisImg)
     })
 }
 
 
 //listener for edit movie
-function getEditMovieValues(id) {
+function getEditMovieValues(id, thisImg) {
 
     $("#editBtn").click(function () {
         $("#editBtn").off('click');
         let movieTitle = $("#editTitle").val()
         let movieRating = $("#editRating").val()
         let moviePoster = $("#editPoster").val()
+        if (moviePoster){
+            thisImg = moviePoster
+        }
         let moviePlot = $("#editPlot").val()
         let movieYear = $("#editYear").val()
         let movieGenre = $("#editGenre").val()
         let movieDirector = $("#editDirector").val()
         let movieActors = $("#editActors").val()
-        editMovie(id, movieTitle, movieRating, moviePoster, movieActors, movieGenre,
+        editMovie(id, thisImg, movieTitle, movieRating, moviePoster, movieActors, movieGenre,
             movieDirector, movieYear, moviePlot)
     })
 }
