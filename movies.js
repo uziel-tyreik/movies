@@ -96,7 +96,8 @@ $('#info').click(function (e) {
             movieCard.find('.edit-movie').hover(function () {
                 let movieNumber = parseInt($(this).html())
                 editMovieClick()
-                editMovie(movieNumber)
+                // editMovie(movieNumber)
+                // getEditMovieValues()
             })
             $('#movies').append(movieCard)
         })
@@ -127,13 +128,8 @@ function deleteMovie(id) {
     };
     fetch(`${url}/${id}`, options)
         .then(response => response.json())
-        .then(movie => getFetch())
+        .then(movie => getFetch(movie))
         .catch(error => console.error(error))
-
-
-
-
-
 }
 
 // deleteMovie(6)
@@ -173,6 +169,7 @@ function editMovie(id, movieTitle, movieRating, moviePoster, movieActors, movieG
     };
     fetch(`${url}/${id}`, options)
         .then(response => response.json())
+        .then(movie => getFetch(movie))
         .catch(error => console.error(error));
 }
 
