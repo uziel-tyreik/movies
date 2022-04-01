@@ -1,4 +1,8 @@
 
+html{
+    scroll-behavior: smooth;
+}
+
 @keyframes spin {
     100% {
         transform: rotate(360deg);
@@ -473,4 +477,29 @@ editBtn
 }
 .edit-movie:hover{
     background-color: #F06449;
+}
+
+/*
+BTN Top
+*/
+
+#btn {
+    display: none;
+    position: fixed;
+    bottom: 1em;
+    right: 2%;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #ffffff;
+    color: #242424;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 15px;
+}
+
+#btn:hover {
+    background-color: #F06449;
+    color: #dddddd;
 }

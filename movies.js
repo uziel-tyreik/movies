@@ -225,3 +225,27 @@ $(".close-model").click(function () {
     $("#editBtn").off('click');
     $("#edit-movie-form").css('display', 'none')
 })
+
+
+//go back up
+
+let myBtn = document.getElementById('btn')
+window.onscroll = function () {
+    scrollBtn()
+};
+
+//destroy btm
+let destroyBtn = document.getElementById('destroy')
+
+function scrollBtn() {
+    if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+        myBtn.style.display = "block";
+    } else {
+        myBtn.style.display = "none";
+    }
+}
+
+function goTop() {
+    document.documentElement.scrollTop = 0
+}
+
