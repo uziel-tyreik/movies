@@ -45,18 +45,24 @@ function getMovieCard(movie) {
     let moviePlot = movie.plot
     let movieRating = movie.rating
     let idNumber = movie.id
+    let movieGenre = movie.genre
     return `
 
-            <h1 class="title-cards">Movie #${idNumber}: ${movieTitle}</h1>
+            <h1 class="title-cards">Movie #${idNumber}: ${movieTitle}
+            <br>Rating: ${movieRating}/10</h1>
+            
             <div class="card">
                 <div class="card-front">
                     <img class="card-img" src="${moviePoster}" alt="Movie Image"></div>
                 <div class="card-back">
                     <h3>${movieTitle}</h3>
-                    <p>${moviePlot}</p>
+                    <h6>Genre: <br>
+                    ${movieGenre}</h6>
+                    <summary>Plot:
+                    <details class="movie-plot">${moviePlot}</details>
+                    </summary>
                     <label for="edit-movie">edit movie:</label>
                     <button class="edit-movie">${idNumber}</button>
-                    <button class="delete-movie">-</button>
                 </div>
             </div>
         `
@@ -200,7 +206,7 @@ function getEditMovieValues(id, thisImg) {
         let movieTitle = $("#editTitle").val()
         let movieRating = $("#editRating").val()
         let moviePoster = $("#editPoster").val()
-        if (moviePoster){
+        if (moviePoster) {
             thisImg = moviePoster
         }
         let moviePlot = $("#editPlot").val()

@@ -208,8 +208,8 @@ body {
 
 
 .card {
-    height: 180px;
-    width: 290px;
+    height: 18em;
+    width: 70%;
     margin: 0 auto;
     transform-style: revert;
     perspective: 300px;
@@ -450,5 +450,27 @@ delete form
         font-style: italic;
     }
 
+}
 
+
+
+
+/*
+movie cards
+*/
+
+.movie-plot, summary, h3, label, .title-cards, h6{
+    color: #fff;
+ }
+
+
+/*
+editBtn
+*/
+
+.edit-movie{
+    width: 10%;
+}
+.edit-movie:hover{
+    background-color: #F06449;
 }
