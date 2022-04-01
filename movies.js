@@ -208,3 +208,10 @@ $(".close-model").click(function (){
 
     $("#edit-movie-form").css('display', 'none')
 })
+
+
+//reset form
+//
+// $("#editBtn").click(function (){
+//     $(".modal-content").reset()
+// })
