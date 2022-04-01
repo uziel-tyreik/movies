@@ -34,7 +34,7 @@ function getMovies(movies) {
     movies.forEach((movie) => {
         moviesCards += getMovieCard(movie)
     })
-    $('#movies').append(moviesCards)
+    $('#movies').html(moviesCards)
     editMovieClick()
 }
 
@@ -127,7 +127,13 @@ function deleteMovie(id) {
     };
     fetch(`${url}/${id}`, options)
         .then(response => response.json())
-        .catch(error => console.error(error));
+        .then(movie => getFetch())
+        .catch(error => console.error(error))
+
+
+
+
+
 }
 
 // deleteMovie(6)

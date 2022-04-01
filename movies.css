@@ -160,7 +160,7 @@ edit option
 
 #edit-movie-form{
     width: 40%;
-    margin: 0 auto;
+    margin: 3em auto;
     border: 2px solid #000;
     display: flex;
 }
