@@ -24,6 +24,8 @@ function getFetch() {
     fetch(url)
         .then(data => data.json())
         .then(data => getMovies(data))
+    $("#rock").html("<img class=\"groudon\" src=\"groudon.gif\" width=\"800px\" height=\"340px\">")
+    $("#rock-text").html("<h1 class=\"fire\">UNDERGROUND MOVIE MADNESS!!!</h1>")
 }
 
 
