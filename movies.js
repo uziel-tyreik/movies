@@ -34,7 +34,7 @@ function getMovies(movies) {
     movies.forEach((movie) => {
         moviesCards += getMovieCard(movie)
     })
-    $('#movies').append(moviesCards)
+    $('#movies').html(moviesCards)
     editMovieClick()
 }
 
@@ -45,6 +45,7 @@ function getMovieCard(movie) {
     let movieRating = movie.rating
     let idNumber = movie.id
     return `
+            <h1>Movie Number: ${idNumber}</h1>
             <div class="card">
                 <div class="card-front">
                     <img class="card-img" src="${moviePoster}" alt="Movie Image"></div>
@@ -95,7 +96,8 @@ $('#info').click(function (e) {
             movieCard.find('.edit-movie').hover(function () {
                 let movieNumber = parseInt($(this).html())
                 editMovieClick()
-                editMovie(movieNumber)
+                // editMovie(movieNumber)
+                // getEditMovieValues()
             })
             $('#movies').append(movieCard)
         })
@@ -126,7 +128,8 @@ function deleteMovie(id) {
     };
     fetch(`${url}/${id}`, options)
         .then(response => response.json())
-        .catch(error => console.error(error));
+        .then(movie => getFetch(movie))
+        .catch(error => console.error(error))
 }
 
 // deleteMovie(6)
@@ -166,6 +169,7 @@ function editMovie(id, movieTitle, movieRating, moviePoster, movieActors, movieG
     };
     fetch(`${url}/${id}`, options)
         .then(response => response.json())
+        .then(movie => getFetch(movie))
         .catch(error => console.error(error));
 }
 
