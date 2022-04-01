@@ -45,6 +45,7 @@ function getMovieCard(movie) {
     let movieRating = movie.rating
     let idNumber = movie.id
     return `
+            <h1>Movie Number: ${idNumber}</h1>
             <div class="card">
                 <div class="card-front">
                     <img class="card-img" src="${moviePoster}" alt="Movie Image"></div>
