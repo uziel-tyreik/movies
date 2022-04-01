@@ -1,31 +1,313 @@
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    align-items: center;
+    justify-content: center;
+
+    /*overflow: hidden;*/
+    background-color: #000000;
+}
+
+.groudon {
+    border-radius: 5%;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 320px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    color: #F76E11;
+    outline: none;
+    text-shadow: 0 0 20px crimson,
+    0 0 20px crimson,
+    0 0 10px crimson,
+    5px -10px 10px orange,
+    -5px -10px 10px yellow;
+    animation: 2s fire infinite alternate linear;
+    font-style: italic;
+}
+
+@keyframes fire {
+    0% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 10px orange,
+        0 0 10px darkorange,
+        -5px -5px 5px yellow,
+        -10px -10px 10px yellow;
+    }
+    25% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 20px orange,
+        -5px -5px 5px yellow,
+        5px -10px 5px yellow,
+        -5px -10px 10px yellow;
+    }
+
+    50% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 10px orange,
+        0 0 10px darkorange,
+        -5px -5px 5px yellow,
+        -10px -10px 10px yellow;
+    }
+    75% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 10px orange,
+        -5px 5px 5px yellow,
+        5px -10px 10px yellow,
+        -5px -10px 10px yellow;
+    }
+    100% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 10px orange,
+        0 0 10px darkorange,
+        -5px -5px 5px red,
+        -10px -10px 10px yellow;
+    }
+}
+
+
+.card {
+    height: 170px;
+    width: 250px;
+    margin: 0 auto;
+    transform-style: revert;
+    perspective: 300px;
+    transition: 0.5ms;
+}
+
+.card:hover .card-front {
+    transform: rotateX(-180deg);
+}
+
+.card:hover .card-back {
+    transform: rotateX(0deg);
+}
+
+.card-front {
+    height: 100%;
+    width: 100%;
+    background-position: 50% 50%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(43deg, #000000 0%, #000000 22%, #ce2323 49%, #df950f 75%, #fbff3b 100%);
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+    transition: 0.6s;
+
+}
+
+.card-back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ddd;
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+    transition: 0.6s;
+    color: #000;
+    text-align: center;
+}
+
+.card-back > a {
+    margin: auto;
+    top: 0.5em;
+    font-size: 1em;
+    color: #F06449;
+
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+}
+
+
+.content {
+    display: none;
+}
+
+
+.loader {
+    height: 200px;
+    width: 200px;
+    border: 20px solid crimson;
+    border-top-color: yellow;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*
+form
+*/
+#newMovie {
+    display: none;
+    width: 50%;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+#reset {
+    width: 30%;
+}
+
+#info {
+    width: 30%;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1em;
+}
+
+#deleteOneMovie {
+    display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.clickable {
+    margin: 7px 0;
+}
+
+.clickable:hover,
+.clickable:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input:invalid {
+    animation: shake 300ms;
+}
+
+@keyframes shake {
+    25% {
+        transform: translateX(4px);
+    }
+    50% {
+        transform: translateX(-4px);
+    }
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+
+/*
+delete form
+*/
+#deleteOneMovie {
+    display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%
+}
+
+.close-model {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-model:hover,
+.close-model:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 /*************************************************************************************/
 /*************************************************************************************/
-
-
-@media (min-width: 340px) and (max-width: 500px) {
-
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        align-items: center;
-        justify-content: center;
-
-        /*overflow: hidden;*/
-        background-color: #000000;
-    }
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+/*************************************************************************************/
+@media (min-width: 501px) and (max-width: 1500px) {
 
     .groudon {
         border-radius: 5%;
-        margin-top: 20px;
-        margin-left: 20px;
-        width: 320px;
-        height: 250px;
+        margin-top: 150px;
+        margin-left: 319px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -33,12 +315,12 @@
 
     .text {
         font-family: 'Nothing You Could Do', cursive;
-        font-size: smaller;
+        font-size: xx-large;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-top: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 180px;
         color: #F76E11;
         outline: none;
         text-shadow: 0 0 20px crimson,
@@ -96,12 +378,14 @@
 
 
     .card {
-        height: 170px;
-        width: 250px;
-        margin: 0 auto;
+        height: 200px;
+        width: 200px;
+        display: inline-flex;
+        margin: 10px;
         transform-style: revert;
         perspective: 300px;
         transition: 0.5ms;
+        z-index: 1;
     }
 
     .card:hover .card-front {
@@ -113,9 +397,9 @@
     }
 
     .card-front {
-        height: 100%;
-        width: 100%;
-        background-position: 50% 50%;
+        height: 150px;
+        width: 150px;
+        /*background-position: 50% 50%;*/
         background-size: cover;
         position: absolute;
         top: 0;
@@ -128,8 +412,8 @@
     }
 
     .card-back {
-        height: 100%;
-        width: 100%;
+        height: 200px;
+        width: 200px;
         position: absolute;
         top: 0;
         left: 0;
@@ -150,21 +434,19 @@
     }
 
     .card-img {
-        width: 100%;
-        height: 100%;
+        width: 180px;
+        height: 180px;
         padding: 1em;
     }
-
 
     .content {
         display: none;
     }
 
-
     .loader {
-        height: 200px;
-        width: 200px;
-        border: 20px solid crimson;
+        height: 80px;
+        width: 80px;
+        border: 10px solid crimson;
         border-top-color: yellow;
         position: absolute;
         margin: auto;
@@ -188,7 +470,7 @@
     */
     #newMovie {
         display: none;
-        width: 50%;
+        width: 200px;
         margin: 0 auto;
         padding: 1em;
     }
@@ -197,7 +479,9 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-
+        align-items: center;
+        color: red;
+        margin-top: 10px;
     }
 
     #reset {
@@ -213,16 +497,10 @@
         flex-direction: row;
         justify-content: space-evenly;
         margin: 1em;
+        color: red;
     }
 
     .clickable {
-        margin: 7px 0;
-    }
-
-    .clickable:hover,
-    .clickable:focus {
-        color: red;
-        text-decoration: none;
         cursor: pointer;
     }
 
@@ -248,6 +526,15 @@
     */
     #deleteOneMovie {
         display: none;
+    }
+
+    #deleteMe {
+        margin-top: 10px;
+        margin-left: 300px;
+    }
+
+    #addMe {
+        margin-left: 500px;
     }
 
     .modal {
@@ -284,282 +571,31 @@
         text-decoration: none;
         cursor: pointer;
     }
-
-    /*************************************************************************************/
-    /*************************************************************************************/
-    /*************************************************************************************/
-    /*************************************************************************************/
-    /*************************************************************************************/
-    /*************************************************************************************/
-    /*************************************************************************************/
-    @media (min-width: 501px) and (max-width: 1500px) {
-
-        .groudon {
-            border-radius: 5%;
-            margin-top: 150px;
-            margin-left: 319px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .text {
-            font-family: 'Nothing You Could Do', cursive;
-            font-size: xx-large;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-            margin-bottom: 180px;
-            color: #F76E11;
-            outline: none;
-            text-shadow: 0 0 20px crimson,
-            0 0 20px crimson,
-            0 0 10px crimson,
-            5px -10px 10px orange,
-            -5px -10px 10px yellow;
-            animation: 2s fire infinite alternate linear;
-            font-style: italic;
-        }
-
-        @keyframes fire {
-            0% {
-                text-shadow: 0 10px 20px crimson,
-                0 0 20px red,
-                0 0 10px orange,
-                0 0 10px darkorange,
-                -5px -5px 5px yellow,
-                -10px -10px 10px yellow;
-            }
-            25% {
-                text-shadow: 0 10px 20px crimson,
-                0 0 20px red,
-                0 0 20px orange,
-                -5px -5px 5px yellow,
-                5px -10px 5px yellow,
-                -5px -10px 10px yellow;
-            }
-
-            50% {
-                text-shadow: 0 10px 20px crimson,
-                0 0 20px red,
-                0 0 10px orange,
-                0 0 10px darkorange,
-                -5px -5px 5px yellow,
-                -10px -10px 10px yellow;
-            }
-            75% {
-                text-shadow: 0 10px 20px crimson,
-                0 0 20px red,
-                0 0 10px orange,
-                -5px 5px 5px yellow,
-                5px -10px 10px yellow,
-                -5px -10px 10px yellow;
-            }
-            100% {
-                text-shadow: 0 10px 20px crimson,
-                0 0 20px red,
-                0 0 10px orange,
-                0 0 10px darkorange,
-                -5px -5px 5px red,
-                -10px -10px 10px yellow;
-            }
-        }
-
-
-        .card {
-            height: 200px;
-            width: 200px;
-            display: inline-flex;
-            margin: 10px;
-            transform-style: revert;
-            perspective: 300px;
-            transition: 0.5ms;
-            z-index: 1;
-        }
-
-        .card:hover .card-front {
-            transform: rotateX(-180deg);
-        }
-
-        .card:hover .card-back {
-            transform: rotateX(0deg);
-        }
-
-        .card-front {
-            height: 150px;
-            width: 150px;
-            /*background-position: 50% 50%;*/
-            background-size: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-image: linear-gradient(43deg, #000000 0%, #000000 22%, #ce2323 49%, #df950f 75%, #fbff3b 100%);
-            backface-visibility: hidden;
-            transform: rotateX(0deg);
-            transition: 0.6s;
-
-        }
-
-        .card-back {
-            height: 200px;
-            width: 200px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #ddd;
-            backface-visibility: hidden;
-            transform: rotateX(180deg);
-            transition: 0.6s;
-            color: #000;
-            text-align: center;
-        }
-
-        .card-back > a {
-            margin: auto;
-            top: 0.5em;
-            font-size: 1em;
-            color: #F06449;
-
-        }
-
-        .card-img {
-            width: 180px;
-            height: 180px;
-            padding: 1em;
-        }
-
-        .content {
-            display: none;
-        }
-
-        .loader {
-            height: 80px;
-            width: 80px;
-            border: 10px solid crimson;
-            border-top-color: yellow;
-            position: absolute;
-            margin: auto;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            border-radius: 50%;
-            animation: spin 1.5s infinite linear;
-        }
-
-        @keyframes spin {
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-
-        /*
-        form
-        */
-        #newMovie {
-            display: none;
-            width: 200px;
-            margin: 0 auto;
-            padding: 1em;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: red;
-            margin-top: 10px;
-        }
-
-        #reset {
-            width: 30%;
-        }
-
-        #info {
-            width: 30%;
-        }
-
-        .btns {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            margin: 1em;
-            color: red;
-        }
-
-        .clickable {
-            cursor: pointer;
-        }
-
-        input:invalid {
-            animation: shake 300ms;
-        }
-
-        @keyframes shake {
-            25% {
-                transform: translateX(4px);
-            }
-            50% {
-                transform: translateX(-4px);
-            }
-            75% {
-                transform: translateX(4px);
-            }
-        }
-
-
-        /*
-        delete form
-        */
-        #deleteOneMovie {
-            display: none;
-        }
-
-        #deleteMe {
-            margin-top: 10px;
-            margin-left: 300px;
-        }
-
-        #addMe {
-            margin-left: 500px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%
-        }
-
-        .close-model {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-model:hover,
-        .close-model:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    }
 }
+
+
+
+.close-model:hover,
+.close-model:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+movies
+*/
+
+#movies {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.title-cards {
+    width: 100%;
+    margin-top: 2em;
+    text-align: center;
+}
+
