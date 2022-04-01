@@ -177,9 +177,9 @@ function editMovie(id, movieTitle, movieRating, moviePoster, movieActors, movieG
 //listener for edit button
 function editMovieClick() {
     $(".edit-movie").click(function () {
+        $("#edit-movie-form").css('display', 'block')
         let movieNumber = parseInt($(this).html())
         getEditMovieValues(movieNumber)
-        console.log('click')
     })
 }
 
@@ -187,7 +187,6 @@ function editMovieClick() {
 //listener for edit movie
 function getEditMovieValues(id) {
     $("#editBtn").click(function () {
-        console.log("click after the click")
         let movieTitle = $("#editTitle").val()
         let movieRating = $("#editRating").val()
         let moviePoster = $("#editPoster").val()
@@ -203,4 +202,9 @@ function getEditMovieValues(id) {
 }
 
 
-//98
+//close model
+
+$(".close-model").click(function (){
+
+    $("#edit-movie-form").css('display', 'none')
+})
