@@ -150,26 +150,9 @@ input:invalid {
 delete form
 */
 
-
 #deleteOneMovie {
     display: none;
 }
-
-/*
-edit option
-*/
-
-/*#edit-movie-form {*/
-/*    visibility: hidden;*/
-/*    transform: translateX(-100%);*/
-/*    transition: transform 500ms,*/
-/*    visibility 0ms 500ms;*/
-/*}*/
-/*#edit-movie-form .active2{*/
-/*    visibility: visible;*/
-/*    transform: translateX(0);*/
-/*    transition: transform 500ms;*/
-/*}*/
 
 .modal{
     display: none;
@@ -205,3 +188,22 @@ edit option
     text-decoration: none;
     cursor: pointer;
 }
+
+/*
+movies
+*/
+
+#movies{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.title-cards{
+    width: 100%;
+    margin-top: 2em;
+    text-align: center;
+}
+
+
