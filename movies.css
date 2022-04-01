@@ -60,15 +60,9 @@
 }
 
 
-
-
-
-
-
 .content {
     display: none;
 }
-
 
 
 .loader {
@@ -87,7 +81,7 @@
 }
 
 @keyframes spin {
-    100%{
+    100% {
         transform: rotate(360deg);
     }
 }
@@ -97,49 +91,119 @@
 form
 */
 
-#newMovie{
+#newMovie {
     display: none;
     width: 50%;
     margin: 0 auto;
     padding: 1em;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
 
 }
 
-#reset{
-    width: 30%;
-}
-#info{
+#reset {
     width: 30%;
 }
 
-.btns{
+#info {
+    width: 30%;
+}
+
+.btns {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 1em;
 }
-
 .clickable{
+    margin: 7px 0;
+}
+.clickable:hover,
+.clickable:focus{
+    color: red;
+    text-decoration: none;
     cursor: pointer;
 }
 
-input:invalid{
+input:invalid {
     animation: shake 300ms;
 }
+
 @keyframes shake {
-    25%{
+    25% {
         transform: translateX(4px);
     }
-    50%{
+    50% {
         transform: translateX(-4px);
     }
-    75%{
+    75% {
         transform: translateX(4px);
     }
 }
+
+
+/*
+delete form
+*/
+
+#deleteOneMovie {
+    display: none;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content{
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%
+}
+
+.close-model{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-model:hover,
+.close-model:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+movies
+*/
+
+#movies{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.title-cards{
+    width: 100%;
+    margin-top: 2em;
+    text-align: center;
+}
+
+
