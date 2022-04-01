@@ -119,8 +119,13 @@ form {
     justify-content: space-evenly;
     margin: 1em;
 }
-
-.clickable {
+.clickable{
+    margin: 7px 0;
+}
+.clickable:hover,
+.clickable:focus{
+    color: red;
+    text-decoration: none;
     cursor: pointer;
 }
 
