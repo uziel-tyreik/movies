@@ -20,8 +20,8 @@
     </div>
 </nav>
 
-<div id="newMovie">
-<form>
+<div id="newMovie" class="modal">
+<form class="modal-content">
     <span class="pull-right clickable close-icon mr-4"><i class="fa fa-times"></i></span>
     <label for="mTitle" pattern="[a-z]*">Movie Title</label><br>
     <input type="text" id="mTitle" name="mTitle" required><br>
@@ -42,8 +42,8 @@
 delete movie
 -->
 
-<div id="deleteOneMovie">
-    <form>
+<div id="deleteOneMovie" class="modal">
+    <form class="modal-content">
         <span class="pull-right clickable close-icon mr-4"><i class="fa fa-times"></i></span>
         <label for="movieid">Movie Number</label><br>
         <input type="text" id="movieid" name="movieID" required><br>
@@ -87,6 +87,8 @@ edit movie
         <label for="editActors">New Actors</label>
         <input type="text" id="editActors">
         <button id="editBtn">Submit</button>
+
+        <button type="reset">reset</button>
     </form>
 </div>
 
