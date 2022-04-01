@@ -33,6 +33,7 @@ function getMovies(movies) {
     //languages=HTML
     movies.forEach((movie) => {
         moviesCards += getMovieCard(movie)
+
     })
     $('#movies').html(moviesCards)
     editMovieClick()
@@ -128,7 +129,10 @@ function deleteMovie(id) {
     };
     fetch(`${url}/${id}`, options)
         .then(response => response.json())
-        .then(movie => getFetch(movie))
+        .then(movie => {
+            alert("movie deleted successfully")
+            getFetch(movie)
+        })
         .catch(error => console.error(error))
 }
 
@@ -169,7 +173,9 @@ function editMovie(id, movieTitle, movieRating, moviePoster, movieActors, movieG
     };
     fetch(`${url}/${id}`, options)
         .then(response => response.json())
-        .then(movie => getFetch(movie))
+        .then(movie => {
+            getFetch(movie)
+        })
         .catch(error => console.error(error));
 }
 
@@ -186,11 +192,12 @@ function editMovieClick() {
 
 //listener for edit movie
 function getEditMovieValues(id) {
+
     $("#editBtn").click(function () {
+        $("#editBtn").off('click');
         let movieTitle = $("#editTitle").val()
         let movieRating = $("#editRating").val()
         let moviePoster = $("#editPoster").val()
-
         let moviePlot = $("#editPlot").val()
         let movieYear = $("#editYear").val()
         let movieGenre = $("#editGenre").val()
@@ -201,17 +208,9 @@ function getEditMovieValues(id) {
     })
 }
 
-
 //close model
+$(".close-model").click(function () {
 
-$(".close-model").click(function (){
-
+    $("#editBtn").off('click');
     $("#edit-movie-form").css('display', 'none')
 })
-
-
-//reset form
-//
-// $("#editBtn").click(function (){
-//     $(".modal-content").reset()
-// })
