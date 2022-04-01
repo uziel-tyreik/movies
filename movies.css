@@ -1,7 +1,215 @@
 
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+nav{
+    background-color: black;
+    text-decoration: red;
+}
+/*
+form
+*/
+
+#newMovie {
+    display: none;
+    width: 50%;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#reset {
+    width: 50px;
+}
+
+#info {
+    width: 50px;
+}
+
+.btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1em;
+}
+
+.clickable {
+    margin: 7px 0;
+}
+
+.clickable:hover,
+.clickable:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+input:invalid {
+    animation: shake 300ms;
+}
+
+@keyframes shake {
+    25% {
+        transform: translateX(4px);
+    }
+    50% {
+        transform: translateX(-4px);
+    }
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+
+/*
+delete form
+*/
+
+#deleteOneMovie {
+    display: none;
+}
+
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%
+}
+
+.close-model {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-model:hover,
+.close-model:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+movies
+*/
+
+#movies {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.title-cards {
+    width: 100%;
+    margin-top: 2em;
+    text-align: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    align-items: center;
+    justify-content: center;
+
+    /*overflow: hidden;*/
+    background-color: #000000;
+}
+
+.groudon {
+    border-radius: 5%;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 320px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    font-family: 'Nothing You Could Do', cursive;
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    color: #F76E11;
+    outline: none;
+    text-shadow: 0 0 20px crimson,
+    0 0 20px crimson,
+    0 0 10px crimson,
+    5px -10px 10px orange,
+    -5px -10px 10px yellow;
+    animation: 2s fire infinite alternate linear;
+    font-style: italic;
+}
+
+@keyframes fire {
+    0% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 10px orange,
+        0 0 10px darkorange,
+        -5px -5px 5px yellow,
+        -10px -10px 10px yellow;
+    }
+    25% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 20px orange,
+        -5px -5px 5px yellow,
+        5px -10px 5px yellow,
+        -5px -10px 10px yellow;
+    }
+
+    50% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 10px orange,
+        0 0 10px darkorange,
+        -5px -5px 5px yellow,
+        -10px -10px 10px yellow;
+    }
+    75% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 10px orange,
+        -5px 5px 5px yellow,
+        5px -10px 10px yellow,
+        -5px -10px 10px yellow;
+    }
+    100% {
+        text-shadow: 0 10px 20px crimson,
+        0 0 20px red,
+        0 0 10px orange,
+        0 0 10px darkorange,
+        -5px -5px 5px red,
+        -10px -10px 10px yellow;
+    }
+}
+
+
 .card {
-    height: 14em;
-    width: 80%;
+    height: 180px;
+    width: 290px;
     margin: 0 auto;
     transform-style: revert;
     perspective: 300px;
@@ -24,7 +232,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #ddd;
+    background-image: linear-gradient(43deg, #000000 0%, #000000 22%, #ce2323 49%, #df950f 75%, #fbff3b 100%);
     backface-visibility: hidden;
     transform: rotateX(0deg);
     transition: 0.6s;
@@ -37,7 +245,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #ddd;
+    background-color: crimson;
     backface-visibility: hidden;
     transform: rotateX(180deg);
     transition: 0.6s;
@@ -90,7 +298,6 @@
 /*
 form
 */
-
 #newMovie {
     display: none;
     width: 50%;
@@ -104,6 +311,7 @@ form {
     justify-content: center;
 
 }
+
 
 #reset {
     width: 30%;
@@ -119,11 +327,30 @@ form {
     justify-content: space-evenly;
     margin: 1em;
 }
-.clickable{
+
+#deleteOneMovie {
+    display: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.clickable {
     margin: 7px 0;
 }
+
 .clickable:hover,
-.clickable:focus{
+.clickable:focus {
     color: red;
     text-decoration: none;
     cursor: pointer;
@@ -149,12 +376,11 @@ input:invalid {
 /*
 delete form
 */
-
 #deleteOneMovie {
     display: none;
 }
 
-.modal{
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -163,19 +389,18 @@ delete form
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-.modal-content{
-    background-color: #fefefe;
+.modal-content {
+    background-color:crimson;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%
 }
 
-.close-model{
+.close-model {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -183,28 +408,47 @@ delete form
 }
 
 .close-model:hover,
-.close-model:focus{
+.close-model:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
 
-/*
-movies
-*/
+/***************************************************************/
+/***************************************************************/
+/***************************************************************/
 
-#movies{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+@media (min-width: 768px) {
+
+    .groudon {
+        border-radius: 5%;
+        margin-top: 20px;
+        margin-left: 360px;
+        margin-bottom: 40px;
+        width: 700px;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .text {
+        font-family: 'Nothing You Could Do', cursive;
+        font-size: xxx-large;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        color: #F76E11;
+        outline: none;
+        text-shadow: 0 0 20px crimson,
+        0 0 20px crimson,
+        0 0 10px crimson,
+        5px -10px 10px orange,
+        -5px -10px 10px yellow;
+        animation: 2s fire infinite alternate linear;
+        font-style: italic;
+    }
+
 
 }
-
-.title-cards{
-    width: 100%;
-    margin-top: 2em;
-    text-align: center;
-}
-
-
-
