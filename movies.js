@@ -23,7 +23,16 @@ function getFetch() {
     //language=HTML
     fetch(url)
         .then(data => data.json())
-        .then(data => getMovies(data))
+        .then(data => {
+            getMovies(data)
+            appendLogoText()
+        })
+}
+
+
+// append image logo and text
+
+function appendLogoText() {
     $("#rock").html("<img class=\"groudon\" src=\"groudon.gif\" width=\"800px\" height=\"340px\">")
     $("#rock-text").html("<h1 class=\"fire\">UNDERGROUND MOVIE MADNESS!!!</h1>")
 }
@@ -82,14 +91,17 @@ $('#info').click(function (e) {
     let movieTitle = $("#mTitle").val()
     let movieRating = $("#mRating").val()
     let moviePlot = $("#mPlot").val()
+    let movieGenre = $("#mGenre").val()
+    let movieImage = $("#mImage").val()
     const newMovie = {
         title: `${movieTitle}`,
         rating: `${movieRating}`,
-        year: "2020",
-        genre: "Action, Sci-Fi",
-        director: "Christopher Nolan",
+        year: "2022",
+        genre: `${movieGenre}`,
+        director: "",
         plot: `${moviePlot}`,
-        actors: ""
+        actors: "",
+        poster: `${movieImage}`
     };
     const options = {
         method: 'POST',
