@@ -23,7 +23,14 @@ function getFetch() {
     //language=HTML
     fetch(url)
         .then(data => data.json())
-        .then(data => getMovies(data))
+        .then(data => {getMovies(data)
+        appendLogoText()})
+}
+
+
+// append image logo and text
+
+function appendLogoText(){
     $("#rock").html("<img class=\"groudon\" src=\"groudon.gif\" width=\"800px\" height=\"340px\">")
     $("#rock-text").html("<h1 class=\"fire\">UNDERGROUND MOVIE MADNESS!!!</h1>")
 }
