@@ -19,9 +19,8 @@ form
 
 #newMovie {
     display: none;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
-    padding: 1em;
 }
 
 form {
@@ -32,19 +31,23 @@ form {
 }
 
 #reset {
-    width: 50px;
+    width: 50%;
 }
 
 #info {
-    width: 50px;
+    width: 50%;
 }
 
 .btns {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 1em;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+#newMovie>form{
+    width: 100%;
+}
+
 
 .clickable {
     margin: 7px 0;
