@@ -26,6 +26,8 @@ function getFetch() {
         .then(data => {
             getMovies(data)
             appendLogoText()
+
+            getMoviesApi();
         })
 }
 
@@ -287,64 +289,65 @@ function goTop() {
 }
 
 
-// getMoviesApi();
-// function getMoviesApi() {
-//     const options = {
-//         method: 'GET',
-//         headers: {
-//             'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com',
-//             'X-RapidAPI-Key': 'a3e125b630mshdcc16c3f861646ep13f5ebjsn3e02f76290c5'
-//         }
-//     };
-//
-//     fetch('https://movies-app1.p.rapidapi.com/api/movies', options)
-//         .then(response => response.json())
-//         .then(response => cleanData(response))
-//     // .catch(err => console.error(err));
-// }
-//
-//
-// function cleanData(response){
-//     let moviesCards = ""
-//     let moviesApi = response.results
-//     //languages=HTML
-//         moviesApi.forEach((movie) => {
-//         moviesCards += getMovieCardApi(movie)
-//
-//     })
-//     $('#moviesRapid').html(moviesCards)
-//     // editMovieClick()
-// }
+function getMoviesApi() {
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com',
+            'X-RapidAPI-Key': 'a3e125b630mshdcc16c3f861646ep13f5ebjsn3e02f76290c5'
+        }
+    };
 
-//
-// function getMovieCardApi(movie) {
-//     let movieTitle = movie.title
-//     let moviePoster = movie.poster
-//     let moviePlot = movie.plot
-//     let movieRating = movie.rating
-//     let idNumber = movie.id
-//     let movieGenre = movie.genre
-//
-//     //language=HTML
-//     return `
-//             <div>
-//
-//             </div>
-//         `
-// }
+    fetch('https://movies-app1.p.rapidapi.com/api/movies', options)
+        .then(response => response.json())
+        .then(response => cleanData(response))
+    // .catch(err => console.error(err));
+}
 
 
-// <div className="card">
-//     <div className="card-front">
-//         <img className="card-img" src="${moviePoster}" alt="Movie Image"></div>
-//     <div className="card-back">
-//         <h3>${movieTitle}</h3>
-//         <h6>Genre: <br>
-//             <p>${movieGenre}</p></h6>
-//
-//         <details className="movie-plot">${moviePlot}
-//             <summary>Plot:</summary>
-//         </details>
-//
-//     </div>
-// </div>
+function cleanData(response) {
+    let moviesCardsAPI = ""
+    let moviesApi = response.results
+    //languages=HTML
+    moviesApi.forEach((movie) => {
+        moviesCardsAPI += getMovieCardApi(movie)
+
+    })
+    $('#moviesRapid').append(moviesCardsAPI)
+    // editMovieClick()
+}
+
+
+function getMovieCardApi(movie) {
+    let movieGenre = movie.genres[0].name;
+    let movieTitle = movie.title;
+    let moviePoster = movie.image;
+    let movieDescription = movie.description;
+    let movieRating = movie.rating;
+    console.log(movie)
+    // let movieWatch = movie.embedUrls[1].url
+    // console.log(movieWatch)
+
+    //language=HTML
+    return `
+
+        <h1 class="title-cards">${movieTitle}
+            <br>Rating: <span>${movieRating}</span></h1>
+        <div class="card">
+            <div class="card-front">
+                <img class="card-img" src="${moviePoster}" alt="Movie Image"></div>
+            <div class="card-back">
+                <h3>${movieTitle}</h3>
+                <h6>Genre: <br>
+                    <p>${movieGenre}</p></h6>
+
+                <details class="movie-plot">
+                    <summary>Plot:</summary>
+                    ${movieDescription}
+                </details>
+<!--                <h1><a href="" target="_blank">Watch me</a></h1>-->
+
+            </div>
+        </div>
+    `
+}
