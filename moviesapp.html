@@ -9,36 +9,56 @@
     <link rel="stylesheet" href="movies.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-black">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <button id="addMe" class="btn btn-outline-primary m-4" aria-current="page" >ADD MOVIE</button>
+                <button id="addMe" class="btn btn-outline-primary m-4" aria-current="page">ADD MOVIE</button>
                 <button id="deleteMe" class="btn btn-outline-primary m-4">Delete Movie</button>
             </div>
         </div>
     </div>
 </nav>
 
+<!--*****************************groudon and h1*********************************************-->
+
+
+<div class="rock" id="rock">
+</div>
+<div class="text" id="rock-text">
+</div>
+<!--*****************************groudon and h1*********************************************-->
+
+
 <div id="newMovie" class="modal">
-<form class="modal-content">
-    <span class="pull-right clickable close-icon mr-4"><i class="fa fa-times"></i></span>
-    <label for="mTitle" pattern="[a-z]*">Movie Title</label><br>
-    <input type="text" id="mTitle" name="mTitle" required><br>
-    <label for="mRating">Movie rating</label><br>
-    <input type="text" id="mRating" name="mRating" required><br>
+    <form class="modal-content">
+        <span class="pull-right clickable close-icon mr-4"><i class="fa fa-times"></i></span>
+        <h6>Create New Movie</h6>
+        <label for="mTitle" pattern="[a-z]*">Movie Title:</label><br>
+        <input type="text" id="mTitle" name="mTitle" required><br>
+        <label for="mRating">Movie rating:</label><br>
+        <input type="text" id="mRating" name="mRating" required><br>
 
-    <label for="mPlot">Description</label><br>
-    <input type="text" id="mPlot" name="mPlot" required>
-    <div class="btns">
-    <input id="info" type="submit"></input>
+        <label for="mPlot">Plot:</label><br>
+        <input type="text" id="mPlot" name="mPlot" required>
 
-    <button id="reset" type="reset">reset</button>
-    </div>
-</form>
+
+        <label for="mGenre">Genre:</label><br>
+        <input type="text" id="mGenre" name="mGenre" required>
+
+
+        <label for="mImage">Image:</label><br>
+        <input type="text" id="mImage" name="mImage" required>
+
+        <div class="btns">
+            <button id="info" type="submit">Create</button>
+            <button id="reset" type="reset">Reset</button>
+        </div>
+    </form>
 </div>
 
 <!--
@@ -50,7 +70,7 @@ delete movie
         <span class="pull-right clickable close-icon mr-4"><i class="fa fa-times"></i></span>
         <label for="movieid">Movie Number</label><br>
         <input type="text" id="movieid" name="movieID" required><br>
-            <input id="delete" type="submit"></input>
+        <input id="delete" type="submit">
     </form>
 </div>
 <!--**************************************************************************-->
@@ -97,6 +117,7 @@ edit movie
 
 <!---->
 
+<span onClick="goTop()" id="btn" title="Go back to the top"><i class="fa-solid fa-circle-chevron-up"></i></span>
 
 <script src="https://kit.fontawesome.com/09d59239c9.js" crossorigin="anonymous"></script>
 
