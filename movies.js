@@ -59,8 +59,8 @@ function getMovieCard(movie) {
     let movieGenre = movie.genre
     return `
 
-            <h1 class="title-cards">Movie #${idNumber}: ${movieTitle}
-            <br>Rating: ${movieRating}/10</h1>
+            <h1 class="title-cards">Movie # ${idNumber}: ${movieTitle}
+            <br>Rating: <span>${movieRating}</span>/10</h1>
             
             <div class="card">
                 <div class="card-front">
@@ -68,7 +68,7 @@ function getMovieCard(movie) {
                 <div class="card-back">
                     <h3>${movieTitle}</h3>
                     <h6>Genre: <br>
-                    ${movieGenre}</h6>
+                    <p>${movieGenre}</p></h6>
                     <summary>Plot:
                     <details class="movie-plot">${moviePlot}</details>
                     </summary>
@@ -173,15 +173,19 @@ $("#deleteMe").click(function () {
 })
 
 //edit movies function
-function editMovie(id, thisImg, movieTitle, movieRating, movieActors, movieGenre,
-                   movieDirector, movieYear, moviePlot) {
+function editMovie(id, thisImg, thisTitle,
+                   thisPlot, thisGenre,
+                   thisRating,
+                   movieActors,
+                   movieDirector, movieYear,
+                   ) {
     const editMovie = {
-        title: `${movieTitle}`,
-        rating: `${movieRating}`,
+        title: `${thisTitle}`,
+        rating: `${thisRating}`,
         year: `${movieYear}`,
-        genre: `${movieGenre}`,
+        genre: `${thisGenre}`,
         director: `${movieDirector}`,
-        plot: `${moviePlot}`,
+        plot: `${thisPlot}`,
         actors: `${movieActors}`,
         poster: `${thisImg}`
     }
@@ -205,31 +209,53 @@ function editMovie(id, thisImg, movieTitle, movieRating, movieActors, movieGenre
 function editMovieClick() {
     $(".edit-movie").click(function () {
         $("#edit-movie-form").css('display', 'block')
-        let movieNumber = parseInt($(this).html())
-        let thisImg = $(this).parent().parent().children('.card-front').children('.card-img').attr('src')
-        getEditMovieValues(movieNumber, thisImg)
+        let movieNumber = parseInt($(this).html());
+        let thisImg = $(this).parent().parent().children('.card-front').children('.card-img').attr('src');
+        let thisTitle = $(this).parent().children('h3').html();
+        let thisPlot = $(this).parent().children('summary').children('details').html();
+        let thisGenre = $(this).parent().children('h6').children('p').html();
+        let thisRating = $(this).parent().parent().parent().children('h1').children('span').html()
+        console.log(thisRating)
+        getEditMovieValues(movieNumber, thisImg, thisTitle,
+            thisPlot, thisGenre, thisRating)
     })
 }
 
 
 //listener for edit movie
-function getEditMovieValues(id, thisImg) {
+function getEditMovieValues(id, thisImg, thisTitle, thisPlot, thisGenre, thisRating) {
 
     $("#editBtn").click(function () {
         $("#editBtn").off('click');
         let movieTitle = $("#editTitle").val()
         let movieRating = $("#editRating").val()
         let moviePoster = $("#editPoster").val()
-        if (moviePoster) {
-            thisImg = moviePoster
-        }
         let moviePlot = $("#editPlot").val()
         let movieYear = $("#editYear").val()
         let movieGenre = $("#editGenre").val()
         let movieDirector = $("#editDirector").val()
         let movieActors = $("#editActors").val()
-        editMovie(id, thisImg, movieTitle, movieRating, moviePoster, movieActors, movieGenre,
-            movieDirector, movieYear, moviePlot)
+        if (moviePoster) {
+            thisImg = moviePoster;
+        }
+        if (movieTitle){
+            thisTitle = movieTitle;
+        }
+        if (moviePlot){
+            thisPlot = moviePlot;
+        }
+        if (movieGenre){
+            thisGenre = movieGenre;
+        }
+        if (movieRating){
+            thisRating = movieRating;
+        }
+        editMovie(id, thisImg, thisTitle,
+            thisPlot, thisGenre,
+            thisRating,
+            movieActors,
+            movieDirector, movieYear,
+            )
     })
 }
 
@@ -247,9 +273,6 @@ let myBtn = document.getElementById('btn')
 window.onscroll = function () {
     scrollBtn()
 };
-
-//destroy btm
-let destroyBtn = document.getElementById('destroy')
 
 function scrollBtn() {
     if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
