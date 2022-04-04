@@ -308,6 +308,7 @@ function getMoviesApi() {
 function cleanData(response) {
     let moviesCardsAPI = ""
     let moviesApi = response.results
+    console.log(response)
     //languages=HTML
     moviesApi.forEach((movie) => {
         moviesCardsAPI += getMovieCardApi(movie)
@@ -324,7 +325,6 @@ function getMovieCardApi(movie) {
     let moviePoster = movie.image;
     let movieDescription = movie.description;
     let movieRating = movie.rating;
-    console.log(movie)
     // let movieWatch = movie.embedUrls[1].url
     // console.log(movieWatch)
 
@@ -345,7 +345,7 @@ function getMovieCardApi(movie) {
                     <summary>Plot:</summary>
                     ${movieDescription}
                 </details>
-<!--                <h1><a href="" target="_blank">Watch me</a></h1>-->
+                <h1><a href="#" target="_blank" style="color: #fefefe"> Watch me</a></h1>
 
             </div>
         </div>

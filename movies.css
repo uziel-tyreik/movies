@@ -224,6 +224,7 @@ body {
     transform-style: revert;
     perspective: 300px;
     transition: 0.5ms;
+    background-color: #000;
 }
 
 .card:hover .card-front {
