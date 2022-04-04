@@ -483,6 +483,7 @@ delete form
         margin: 0 auto;
     }
 
+
 }
 
 
@@ -589,22 +590,31 @@ j {
     #nav1{
         display: none;
     }
+    #moviesRapid{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #moviesRapid>.card{
+        width: 50%;
+        margin: 0;
+    }
+
+    #moviesRapid>.title-cards{
+        width: 50%;
+    }
+
+
+    #moviesRapid>h4{
+        width: 100%;
+        font-size: 5em;
+        margin: 2em;
+    }
+
+
+
 }
-
-
-
-#moviesRapid{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-
-
-
-
-
-
 
 
 

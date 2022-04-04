@@ -37,7 +37,7 @@ function appendLogoText() {
     $("#rock").html("<img class=\"groudon\" src=\"groudon.gif\" width=\"800px\" height=\"340px\">")
     $("#rock-text").html("<h1 class=\"fire\">UNDERGROUND MOVIE MADNESS!!!</h1>")
     $("#moviesRapid").append(
-        '<h1  style="text-align: center; color: #fefefe">Other Movies</h1>')
+        '<h4  style="text-align: center; color: #fefefe">Other Movies</h4>')
 }
 
 
