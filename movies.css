@@ -473,6 +473,17 @@ delete form
     }
 
 }
+@media (max-width: 600px) {
+    .fire{
+        font-size: 2em;
+        margin: 2em 1em;
+    }
+    .groudon{
+        margin: 0 auto;
+    }
+
+}
+
 
 
 
