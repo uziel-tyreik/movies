@@ -50,12 +50,12 @@ form {
 
 
 .clickable {
-    margin: 7px 0;
+    font-size: 2em;
 }
 
 .clickable:hover,
 .clickable:focus {
-    color: red;
+    color: #fff;
     text-decoration: none;
     cursor: pointer;
 }
@@ -114,7 +114,8 @@ movies
 
 #movies {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-evenly;
 
 }
@@ -214,13 +215,22 @@ body {
 }
 
 
+.wrapper{
+    width: 30%;
+    height: auto;
+    background-color: #888888;
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: column wrap;
+}
 .card {
-    height: 18em;
-    width: 70%;
-    margin: 0 auto;
+    height: 200px;
+    width: 20%;
+    margin: 0;
     transform-style: revert;
     perspective: 300px;
     transition: 0.5ms;
+    display: flex;
 }
 
 .card:hover .card-front {
@@ -232,8 +242,8 @@ body {
 }
 
 .card-front {
-    height: 100%;
-    width: 100%;
+    height: 200px;
+    width: 200px;
     background-position: 50% 50%;
     background-size: cover;
     position: absolute;
@@ -247,8 +257,8 @@ body {
 }
 
 .card-back {
-    height: 100%;
-    width: 100%;
+    height: 200px;
+    width: 200px;
     position: absolute;
     top: 0;
     left: 0;
@@ -269,8 +279,8 @@ body {
 }
 
 .card-img {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 200px;
     padding: 1em;
 }
 
@@ -281,9 +291,9 @@ body {
 
 
 .loader {
-    height: 200px;
-    width: 200px;
-    border: 20px solid crimson;
+    height: 100px;
+    width: 100px;
+    border: 10px solid crimson;
     border-top-color: yellow;
     position: absolute;
     margin: auto;
@@ -307,7 +317,7 @@ form
 */
 #newMovie {
     display: none;
-    width: 50%;
+    width: 200px;
     margin: 0 auto;
     padding: 1em;
 }
@@ -345,8 +355,8 @@ form {
     z-index: 1;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 400px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -393,8 +403,8 @@ delete form
     z-index: 1;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 400px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -468,7 +478,7 @@ movie cards
 
 .movie-plot, summary, h3, label, .title-cards, h6{
     color: #fff;
- }
+}
 
 
 /*
@@ -476,7 +486,7 @@ editBtn
 */
 
 .edit-movie{
-    width: 10%;
+    width: 200px;
 }
 .edit-movie:hover{
     background-color: #F06449;
@@ -505,4 +515,41 @@ BTN Top
 #btn:hover {
     background-color: #F06449;
     color: #dddddd;
+}
+
+
+
+/**************************************** STARS **************************************/
+
+.takeoff {
+    position: absolute;
+    width: 100%;
+    /*height: 1000000%;*/
+    /*background: #1A1A40;*/
+    overflow: hidden;
+    /*display: flex;*/
+    justify-self: start;
+}
+
+j {
+    position: absolute;
+    top: -400px;
+    background: linear-gradient(180deg, rgba(1,0,13,1) 18%, rgba(163,109,4,1) 42%, rgba(200,31,31,1) 69%, rgba(255,0,0,1) 100%);
+    animation: animateStars linear infinite;
+    z-index: -1;
+}
+
+@keyframes animateStars {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(200vh);
+    }
+}
+
+#movies{
+    display: flex;
+
+
 }

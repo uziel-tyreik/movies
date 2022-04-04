@@ -58,7 +58,7 @@ function getMovieCard(movie) {
     let idNumber = movie.id
     let movieGenre = movie.genre
     return `
-
+<div class="wrapper">
             <h1 class="title-cards">Movie #${idNumber}: ${movieTitle}
             <br>Rating: ${movieRating}/10</h1>
             
@@ -75,6 +75,7 @@ function getMovieCard(movie) {
                     <label for="edit-movie">edit movie:</label>
                     <button class="edit-movie">${idNumber}</button>
                 </div>
+            </div>
             </div>
         `
 }
