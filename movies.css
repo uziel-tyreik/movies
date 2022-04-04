@@ -519,3 +519,41 @@ BTN Top
     background-color: #F06449;
     color: #dddddd;
 }
+
+
+/*
+Stars section
+*/
+
+
+.takeoff {
+    position: absolute;
+    width: 100%;
+    /*height: 1000000%;*/
+    /*background: #1A1A40;*/
+    overflow: hidden;
+    /*display: flex;*/
+    justify-self: start;
+}
+
+j {
+    position: absolute;
+    top: -400px;
+    background: linear-gradient(180deg, rgba(1,0,13,1) 18%, rgba(163,109,4,1) 42%, rgba(200,31,31,1) 69%, rgba(255,0,0,1) 100%);
+    animation: animateStars linear infinite;
+    z-index: -1;
+}
+
+@keyframes animateStars {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(200vh);
+    }
+}
+
+
+.navbar-toggler{
+    background-color: white;
+}
