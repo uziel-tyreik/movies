@@ -178,7 +178,7 @@ function editMovie(id, thisImg, thisTitle,
                    thisRating,
                    movieActors,
                    movieDirector, movieYear,
-                   ) {
+) {
     const editMovie = {
         title: `${thisTitle}`,
         rating: `${thisRating}`,
@@ -238,16 +238,16 @@ function getEditMovieValues(id, thisImg, thisTitle, thisPlot, thisGenre, thisRat
         if (moviePoster) {
             thisImg = moviePoster;
         }
-        if (movieTitle){
+        if (movieTitle) {
             thisTitle = movieTitle;
         }
-        if (moviePlot){
+        if (moviePlot) {
             thisPlot = moviePlot;
         }
-        if (movieGenre){
+        if (movieGenre) {
             thisGenre = movieGenre;
         }
-        if (movieRating){
+        if (movieRating) {
             thisRating = movieRating;
         }
         editMovie(id, thisImg, thisTitle,
@@ -255,7 +255,7 @@ function getEditMovieValues(id, thisImg, thisTitle, thisPlot, thisGenre, thisRat
             thisRating,
             movieActors,
             movieDirector, movieYear,
-            )
+        )
     })
 }
 
@@ -286,16 +286,65 @@ function goTop() {
     document.documentElement.scrollTop = 0
 }
 
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com',
-        'X-RapidAPI-Key': 'a3e125b630mshdcc16c3f861646ep13f5ebjsn3e02f76290c5'
-    }
-};
 
-fetch('https://movies-app1.p.rapidapi.com/api/movies', options)
-    .then(response => response.json())
-    .then(response =>  getMovies(response))
-    // .catch(err => console.error(err));
+// getMoviesApi();
+// function getMoviesApi() {
+//     const options = {
+//         method: 'GET',
+//         headers: {
+//             'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com',
+//             'X-RapidAPI-Key': 'a3e125b630mshdcc16c3f861646ep13f5ebjsn3e02f76290c5'
+//         }
+//     };
+//
+//     fetch('https://movies-app1.p.rapidapi.com/api/movies', options)
+//         .then(response => response.json())
+//         .then(response => cleanData(response))
+//     // .catch(err => console.error(err));
+// }
+//
+//
+// function cleanData(response){
+//     let moviesCards = ""
+//     let moviesApi = response.results
+//     //languages=HTML
+//         moviesApi.forEach((movie) => {
+//         moviesCards += getMovieCardApi(movie)
+//
+//     })
+//     $('#moviesRapid').html(moviesCards)
+//     // editMovieClick()
+// }
 
+//
+// function getMovieCardApi(movie) {
+//     let movieTitle = movie.title
+//     let moviePoster = movie.poster
+//     let moviePlot = movie.plot
+//     let movieRating = movie.rating
+//     let idNumber = movie.id
+//     let movieGenre = movie.genre
+//
+//     //language=HTML
+//     return `
+//             <div>
+//
+//             </div>
+//         `
+// }
+
+
+// <div className="card">
+//     <div className="card-front">
+//         <img className="card-img" src="${moviePoster}" alt="Movie Image"></div>
+//     <div className="card-back">
+//         <h3>${movieTitle}</h3>
+//         <h6>Genre: <br>
+//             <p>${movieGenre}</p></h6>
+//
+//         <details className="movie-plot">${moviePlot}
+//             <summary>Plot:</summary>
+//         </details>
+//
+//     </div>
+// </div>
