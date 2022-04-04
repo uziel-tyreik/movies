@@ -286,3 +286,16 @@ function goTop() {
     document.documentElement.scrollTop = 0
 }
 
+const options = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com',
+        'X-RapidAPI-Key': 'a3e125b630mshdcc16c3f861646ep13f5ebjsn3e02f76290c5'
+    }
+};
+
+fetch('https://movies-app1.p.rapidapi.com/api/movies', options)
+    .then(response => response.json())
+    .then(response =>  getMovies(response))
+    // .catch(err => console.error(err));
+
