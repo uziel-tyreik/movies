@@ -69,9 +69,9 @@ function getMovieCard(movie) {
                     <h3>${movieTitle}</h3>
                     <h6>Genre: <br>
                     <p>${movieGenre}</p></h6>
-                    <summary>Plot:
-                    <details class="movie-plot">${moviePlot}</details>
-                    </summary>
+                    
+                    <details class="movie-plot">${moviePlot}<summary>Plot:</summary></details>
+                    
                     <label for="edit-movie">edit movie:</label>
                     <button class="edit-movie">${idNumber}</button>
                 </div>

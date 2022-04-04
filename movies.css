@@ -283,6 +283,14 @@ body {
     display: none;
 }
 
+details{
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: auto;
+    padding: 1em;
+}
 
 .loader {
     height: 200px;
