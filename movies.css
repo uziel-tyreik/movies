@@ -51,11 +51,13 @@ form {
 
 .clickable {
     margin: 7px 0;
+    color: #fff;
+    font-size: 2em;
 }
 
 .clickable:hover,
 .clickable:focus {
-    color: red;
+    color: #000 !important;
     text-decoration: none;
     cursor: pointer;
 }
