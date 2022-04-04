@@ -116,6 +116,7 @@ movies
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin-bottom: 9em;
 
 }
 
