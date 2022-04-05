@@ -61,7 +61,7 @@ function getMovieCard(movie) {
     let idNumber = movie.id
     let movieGenre = movie.genre
     return `
-
+<div class="wrapper">
             <h1 class="title-cards">Movie # ${idNumber}: ${movieTitle}
             <br>Rating: <span>${movieRating}</span>/10</h1>
             
@@ -73,11 +73,12 @@ function getMovieCard(movie) {
                     <h6>Genre: <br>
                     <p>${movieGenre}</p></h6>
                     
-                    <details class="movie-plot">${moviePlot}<summary>Plot:</summary></details>
+                    <details class="movie-plot"><span>${moviePlot}</span><summary>Plot:</summary></details>
                     
                     <label for="edit-movie">edit movie:</label>
                     <button class="edit-movie">${idNumber}</button>
                 </div>
+            </div>
             </div>
         `
 }
@@ -215,10 +216,11 @@ function editMovieClick() {
         let movieNumber = parseInt($(this).html());
         let thisImg = $(this).parent().parent().children('.card-front').children('.card-img').attr('src');
         let thisTitle = $(this).parent().children('h3').html();
-        let thisPlot = $(this).parent().children('summary').children('details').html();
+        let thisPlot = $(this).parent().children('details').children('span').html()
         let thisGenre = $(this).parent().children('h6').children('p').html();
         let thisRating = $(this).parent().parent().parent().children('h1').children('span').html()
         console.log(thisRating)
+        console.log(thisPlot)
         getEditMovieValues(movieNumber, thisImg, thisTitle,
             thisPlot, thisGenre, thisRating)
     })
@@ -309,7 +311,6 @@ function getMoviesApi() {
 function cleanData(response) {
     let moviesCardsAPI = ""
     let moviesApi = response.results
-    console.log(response)
     //languages=HTML
     moviesApi.forEach((movie) => {
         moviesCardsAPI += getMovieCardApi(movie)
