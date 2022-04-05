@@ -362,3 +362,8 @@ $('#rock').hover(function () {
     }
 );
 
+$(document).ready(function() {
+    mp3 = document.getElementById("myMP3");
+    mp3.volume = 0.02;
+    mp3.play();
+});
