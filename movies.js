@@ -34,7 +34,7 @@ function getFetch() {
 // append image logo and text
 
 function appendLogoText() {
-    $("#rock").html("<img class=\"groudon\" src=\"groudon.gif\" width=\"800px\" height=\"340px\">")
+    $("#rock").html(`<img class="groudon rock" src="groudon.gif" width="800px" height="340px">`)
     $("#rock-text").html("<h1 class=\"fire\">UNDERGROUND MOVIE MADNESS!!!</h1>")
     $("#moviesRapid").append(
         '<h4  style="text-align: center; color: #fefefe">Other Movies</h4>')
@@ -352,4 +352,12 @@ function getMovieCardApi(movie) {
         </div>
     `
 }
+
+$('#rock').hover(function () {
+        $('.groudon').attr('src', 'groudoun2.gif')
+    },
+    function () {
+        $('.groudon').attr('src', 'groudon.gif')
+    }
+);
 
