@@ -613,7 +613,9 @@ j {
         font-size: 5em;
         margin: 2em;
     }
-
+    .rock{
+        margin-top: 120px;
+    }
 
 
 }
