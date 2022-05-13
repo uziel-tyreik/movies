@@ -1,4 +1,5 @@
-const url = 'https://detailed-deadpan-professor.glitch.me/movies'
+// const url = 'https://detailed-deadpan-professor.glitch.me/movies'
+const url = 'http://localhost:9090/api/movies/'
 
 //url to see database
 //https://glitch.com/edit/#!/detailed-deadpan-professor?path=db.json%3A46%3A5
@@ -21,10 +22,11 @@ function loadScreen() {
 
 function getFetch() {
     //language=HTML
-    fetch(url)
+    fetch(`${url}all`)
         .then(data => data.json())
         .then(data => {
             getMovies(data)
+            // console.log(data)
             appendLogoText()
             getMoviesApi();
         })
@@ -54,6 +56,7 @@ function getMovies(movies) {
 }
 
 function getMovieCard(movie) {
+    console.log(movie)
     let movieTitle = movie.title
     let moviePoster = movie.poster
     let moviePlot = movie.plot
